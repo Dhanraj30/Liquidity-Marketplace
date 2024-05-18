@@ -55,7 +55,7 @@
         const contract = fetchContract(signer, ERC20ABI, ADDRESS);
 
         //user address
-        const userAddress = signer.getAddress();
+        const userAddress = await signer.getAddress();
         const balance = await contract.balanceOf(userAddress);
 
         const name = await contract.name();

@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from "react";
 import {ethers, Contract} from "ethers";
-import Web3Modal, { PROVIDER_CONTAINER_CLASSNAME } from "web3modal";
+import Web3Modal from "web3modal";
 import axios from "axios";
 import UniswapV3Pool from "@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json";
 import toast from "react-hot-toast";
 
 import { Token } from "@uniswap/sdk-core";
 import { Pool, Position, nearestUsableTick } from "@uniswap/v3-sdk";
-import {abi as IUniswapV3PoolABI} from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
-import { abi as INonfungiblePositionManagerABI} from "@uniswap/v3-periphery/artifacts/contracts/interfaces/INonfungiblePositionManager.sol/INonfungiblePositionManager.json";
+//import { IUniswapV3PoolABI} from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
+//import { INonfungiblePositionManagerABI} from "@uniswap/v3-periphery/artifacts/contracts/interfaces/INonfungiblePositionManager.sol/INonfungiblePositionManager.json";
 import ERC20ABI from "./abi.json";
-
+import UniswapV3PoolImport from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
+import NonfungiblePositionManagerImport from "@uniswap/v3-periphery/artifacts/contracts/interfaces/INonfungiblePositionManager.sol/INonfungiblePositionManager.json";
+const { abi: IUniswapV3PoolABI } = UniswapV3PoolImport;
+const { abi: INonfungiblePositionManagerABI } = NonfungiblePositionManagerImport;
 //internal import 
 import {
     ERC20_ABI,
@@ -369,7 +372,7 @@ export const CONTEXT_Provider = ({children}) => {
             // Token Sale contract 
             const ICO_WOOX_CONTRACT = await internalICOWooxContract();
             const tokenPrice = await ICO_WOOX_CONTRACT.tokenPrice();
-            const tokenSold = await ICO_WOOX_CONTRACT.tokensSold();
+            const tokenSold = await ICO_WOOX_CONTRACT.tokenSold();
             const tokenSaleBalance =await WOOX_TOKEN_CONTRACT.balanceOf(
                 "0x5728a5c4A729cAb2112902F6402389914547EA43"
             );
