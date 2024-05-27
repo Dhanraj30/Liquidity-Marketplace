@@ -1,4 +1,6 @@
+
 # Crypto Liquidity Marketplace With ICO (DeFi Project)
+![alt](https://github.com/Dhanraj30/Liquidity-Marketplace/blob/master/img/Screenshot%20(117).png)
 
 Welcome to the Crypto Liquidity Marketplace repository! In this project, we’ll build a decentralized Uniswap ERC20 liquidity marketplace with an integrated ERC20 token sale (Initial Coin Offering or ICO). Users will be able to create liquidity pools for any two tokens and discover liquidity pool addresses across various blockchains.
 
